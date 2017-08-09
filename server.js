@@ -14,36 +14,38 @@ var articleOne={
 
 function CreateTemplate(data)
 {
-    var title=data.title;
-    var date=data.date;
-    var heading=data.heading;
-    var content=data.content;
-    var htlmTemplate=`
-    <html>
-    <head>
-    <title>
-    ${title}
-    </title>
-    </head>
-    <body>
-    <div class="container">
-    <h3>${heading}</h3>
-    <div>${date}</div>
-    <div>${content}</div>
-    </div>
-    
-    </body>
-    
-    
-    
-    </html>`
-    
-    return htmlTemplate;
-    
-    
-    
+   var title=data.title;
+   var date=data.date;
+   var heading=data.heading;
+   var content=data.content;
+   var htmlTemplate=`
+   
+   <html>
+   
+   <head>
+   <title>
+   ${title}
+   </title>
+   
+   </head>
+   
+   <body>
+   <div class="container">
+   <h3>${heading}<h3>
+   <div>${date}</div>
+   <div>${content}</div>
+   
+   
+   
+   </div>
+   
+   </body>
+   </html>`
+   return htmlTemplate;
+   
+   
+   
 }
-
 var app = express();
 app.use(morgan('combined'));
 
