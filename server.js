@@ -2,6 +2,48 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
+var articleOne={
+    title:'ArticleOne',
+    heading:'ArticleOne',
+    date:'Sep 5 2016',
+    content:`<h1>This is articleOne created in server.js</h1>
+    <p>Content</p>
+    `
+    
+}
+
+function CreateTemplate(data)
+{
+    var title=data.title;
+    var date=data.date;
+    var heading=data.heading;
+    var content=data.content;
+    var htlmTemplate=`
+    <html>
+    <head>
+    <title>
+    ${title}
+    </title>
+    </head>
+    <body>
+    <div class="container">
+    <h3>${heading}</h3>
+    <div>${date}</div>
+    <div>${content}</div>
+    </div>
+    
+    </body>
+    
+    
+    
+    </html>`
+    
+    return htmlTemplate;
+    
+    
+    
+}
+
 var app = express();
 app.use(morgan('combined'));
 
