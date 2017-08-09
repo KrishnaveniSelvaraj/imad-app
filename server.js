@@ -52,7 +52,7 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-//counter while refreshing value increases
+//counter while refreshing value increases2
 var counter=0;
 app.get('/counter',function(req,res){
     counter=counter+1;
