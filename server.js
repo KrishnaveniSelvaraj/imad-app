@@ -1,6 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var crypto = require('crypto');
 
 var articleOne={
     title:'ArticleOne',
@@ -11,6 +12,8 @@ var articleOne={
     `
     
 }
+
+
 
 function CreateTemplate(data)
 {
@@ -52,6 +55,18 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+
+function hash(input,salt){
+    var hashed = crypto.pbkdf2Sync('secret', 'salt', 100000, 512, 'sha512');
+    return hashed.tostring('hex');
+}
+
+app.get('/hash/:input',function(req,res){
+    var hashedstring=hash(req.params.input,'this-is-some-random-string');
+    res.send(hashedString);
+    
+});
+
 //counter while refreshing value increases2
 var counter=0;
 app.get('/counter',function(req,res){
