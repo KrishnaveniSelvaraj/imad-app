@@ -83,6 +83,8 @@ app.get('/hash/:input',function(req,res){
     
 });
 //password security end
+
+//inserting username and password in db
 var pool=new Pool(config);
 app.post('/create-user',function(req,res)
 {
@@ -101,7 +103,7 @@ app.post('/create-user',function(req,res)
     })
 });
 
-
+//username and password validation in login
 app.post('/login',function(req,res)
 {
    //JSON
