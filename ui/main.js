@@ -39,3 +39,26 @@ success:function(data){
 }
 });
 
+var submit=document.getElementById("user_submit");
+
+submit.onclick=function()
+{
+   alert("hi");
+    var nameInput=document.getElementById("username");
+    var name=nameInput.value;
+   
+    var pwdInput=document.getElementById("pwd");
+    var pwd=pwdInput.value;
+   
+    
+  $.ajax({
+url:'/login',
+contentType: "application/json",
+data:JSON.stringify({username:name,password:pwd}),
+type:'POST',
+success:function(data){
+ console.log(data);
+}
+});
+}
+
