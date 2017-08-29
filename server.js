@@ -3,6 +3,16 @@ var morgan = require('morgan');
 var path = require('path');
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
+var Pool=require('pg').Pool;
+
+var config={
+   user:'krishnaveniselvaraj',
+   database:'krishnaveniselvaraj',
+   host:'db.imad.hasura-app.io',
+   port:'5432',
+   password:process.env.DB_PASSWORD
+   
+}
 
 
 
