@@ -5,6 +5,7 @@ var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var Pool=require('pg').Pool;
 
+
 var config={
    user:'krishnaveniselvaraj',
    database:'krishnaveniselvaraj',
@@ -81,7 +82,7 @@ app.get('/hash/:input',function(req,res){
     
 });
 //password security end
-
+var pool=new Pool(config);
 app.post('/create-user',function(req,res)
 {
     var username=req.body.username;
