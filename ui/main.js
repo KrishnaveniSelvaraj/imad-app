@@ -29,7 +29,7 @@ button.onclick=function(){
 
 
 
-    $.ajax({
+/*    $.ajax({
 url:'/create-user',
 contentType: "application/json",
 data:'{"username":"krish","password":"krish"}',
@@ -37,7 +37,7 @@ type:'POST',
 success:function(data){
  console.log(data);
 }
-});
+});*/
 
 var submit=document.getElementById("user_submit");
 
