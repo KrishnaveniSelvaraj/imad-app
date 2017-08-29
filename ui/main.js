@@ -32,7 +32,7 @@ button.onclick=function(){
     $.ajax({
 url:'/create-user',
 contentType: "application/json",
-data:'{"username":"praise","password":"praise"}',
+data:'{"username":"krish","password":"krish"}',
 type:'POST',
 success:function(data){
  console.log(data);
