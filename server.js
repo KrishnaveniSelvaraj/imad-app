@@ -137,6 +137,8 @@ app.post('/login',function(req,res)
          console.log(hashedPassword);
          if(hashedPassword===dbString)
          {
+             
+             
              req.session.auth={userId:result.rows[0].id};
              res.send('credentials correct');
             
@@ -149,14 +151,24 @@ app.post('/login',function(req,res)
   
   });
 });
+//check session login
 
 app.get('/check-login',function(req,res){
     if(req.session && req.session.auth &&req.session.auth.userId){
         res.send('You are logged in:'+req.session.auth.userId.toString());
     } else {
-        res.send('You are not logged');
+        res.send('You are not logged in');
     }
+});
+
+//session logout
+app.get('/logout',function(req,res)
+{
+    delete req.session.auth;
+    res.send("Logged out successfully");
 })
+
+
 
 //counter while refreshing value increases2
 var counter=0;
